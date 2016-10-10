@@ -1,3 +1,9 @@
+package fr.paris10.td3.Client;
+
+import fr.paris10.td3.Products.ProductA;
+import fr.paris10.td3.Products.ProductB;
+import fr.paris10.td3.Products.ProductC;
+
 /**
  * Created by wilpiron on 10/10/2016.
  */
