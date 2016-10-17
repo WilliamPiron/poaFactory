@@ -8,13 +8,29 @@ import java.util.Map;
  */
 public class ProdFactory {
 
-    private static Map<String, Product> registry = new HashMap<String, Product>();
+    private static ProdFactory instance;
 
-    public static void registerProduct(String name, Product p){
-        registry.put(name,p);
+    public ProdFactory(){}
+
+    public static synchronized ProdFactory getInstance(){
+        if (instance == null){
+            instance = new ProdFactory();
+        }
+        return instance;
     }
 
-    public Product createProduct(String name){
-        return registry.get(name).createProduct();
+    public Product createProduct(){ return new ProductA(); }
+
+    public Product createProduct(String ProductName){
+        if (ProductName.equals("ProductA")){
+            return new ProductA();
+        }
+        if (ProductName.equals("ProductB")){
+            return new ProductB();
+        }
+        if (ProductName.equals("ProductC")){
+            return new ProductC();
+        }
+        return null;
     }
 }
